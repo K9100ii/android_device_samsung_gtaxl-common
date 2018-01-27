@@ -14,10 +14,10 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/samsung/gtaxl-common
+COMMON_PATH := device/samsung/gtaxl-common
 
 # Include path
-TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
+TARGET_SPECIFIC_HEADER_PATH := $(COMMON_PATH)/include
 
 # Firmware
 TARGET_NO_BOOTLOADER := true
@@ -84,7 +84,7 @@ TARGET_COPY_OUT_VENDOR := system/vendor
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
 BOARD_HAS_QCA_BT_ROME := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(COMMON_PATH)/bluetooth
 QCOM_BT_USE_SMD_TTY := true
 
 # Samsung HALs
@@ -173,18 +173,18 @@ BOARD_CHARGER_SHOW_PERCENTAGE := true
 CHARGING_ENABLED_PATH := /sys/class/power_supply/battery/batt_lp_charging
 
 # HIDL
-DEVICE_MANIFEST_FILE := $(LOCAL_PATH)/manifest.xml
-DEVICE_MATRIX_FILE := $(LOCAL_PATH)/compatibility_matrix.xml
+DEVICE_MANIFEST_FILE := $(COMMON_PATH)/manifest.xml
+DEVICE_MATRIX_FILE := $(COMMON_PATH)/compatibility_matrix.xml
 PRODUCT_ENFORCE_VINTF_MANIFEST_OVERRIDE := true
 
 # RIL
 TARGET_USES_VND_SECRIL := true
 
 # Release tools
-TARGET_RELEASETOOLS_EXTENSIONS := $(LOCAL_PATH)
+TARGET_RELEASETOOLS_EXTENSIONS := $(COMMON_PATH)
 
 # Recovery
-TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/fstab.samsungexynos7870
+TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/fstab.samsungexynos7870
 TARGET_RECOVERY_PIXEL_FORMAT := "ABGR_8888"
 
 # Vendor security patch level - P580ZSS1CTI1
@@ -195,7 +195,7 @@ TARGET_LD_SHIM_LIBS += \
     /vendor/lib/libexynoscamera.so|libexynoscamera_shim.so
 
 # SELinux
-BOARD_VENDOR_SEPOLICY_DIRS := $(LOCAL_PATH)/sepolicy
+BOARD_VENDOR_SEPOLICY_DIRS := $(COMMON_PATH)/sepolicy
 SELINUX_IGNORE_NEVERALLOWS := true
 
 # Inherit from the proprietary version
