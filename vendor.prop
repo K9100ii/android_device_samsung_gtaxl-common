@@ -1,5 +1,6 @@
 # Adoptable Storage
 ro.crypto.volume.options=aes-256-xts
+ro.crypto.volume.filenames_mode=aes-256-cts
 
 # Audio
 af.fast_track_multiplier=1
