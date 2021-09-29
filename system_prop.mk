@@ -77,3 +77,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # BPF
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.kernel.ebpf.supported=false
+
+# SoC
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.soc.manufacturer=Samsung \
+    ro.soc.model=Exynos7870
