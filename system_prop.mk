@@ -68,3 +68,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Do not update the recovery image
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.recovery_update=false
+
+# System
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.binary_xml=false
