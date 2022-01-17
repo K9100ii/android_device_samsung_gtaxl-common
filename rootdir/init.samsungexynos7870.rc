@@ -203,6 +203,7 @@ on property:wc_transport.start_hci=true
 
 on property:wc_transport.start_hci=false
     stop start_hci_filter
+    exec - root root system -- /system/bin/killall wcnss_filter
 
 service start_hci_filter /vendor/bin/wcnss_filter
     class late_start
