@@ -8,7 +8,7 @@
 
 set -e
 
-DEVICE=gtaxlwifi
+DEVICE_COMMON=gtaxl-common
 VENDOR=samsung
 
 # Load extract_utils and do some sanity checks
@@ -54,7 +54,7 @@ if [ -z "${SRC}" ]; then
 fi
 
 # Initialize the helper
-setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" true "${CLEAN_VENDOR}"
+setup_vendor "${DEVICE_COMMON}" "${VENDOR}" "${ANDROID_ROOT}" true "${CLEAN_VENDOR}"
 
 extract "${MY_DIR}/proprietary-files.txt" "${SRC}" "${KANG}" --section "${SECTION}"
 

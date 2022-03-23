@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/samsung/gtaxlwifi
+LOCAL_PATH := device/samsung/gtaxl-common
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
@@ -219,16 +219,6 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl.recovery \
     android.hardware.health@2.1-service
 
-# GPS
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/gps/gps.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/gps.conf \
-    $(LOCAL_PATH)/configs/gps/gps.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/gps_debug.conf \
-    $(LOCAL_PATH)/configs/gps/gps.xml:$(TARGET_COPY_OUT_VENDOR)/etc/gps.xml
-
-PRODUCT_PACKAGES += \
-    android.hardware.gnss@1.0-impl \
-    android.hardware.gnss@1.0-service
-
 # Keylayouts
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/keylayout/gpio-keys.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/gpio-keys.kl \
@@ -246,7 +236,7 @@ PRODUCT_PACKAGES += \
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
-    android.hardware.sensors@1.0-service.gtaxlwifi
+    android.hardware.sensors@1.0-service.gtaxl
 
 # Trust HAL
 PRODUCT_PACKAGES += \
@@ -259,10 +249,6 @@ PRODUCT_PACKAGES += \
 # FlipFlap
 PRODUCT_PACKAGES += \
     FlipFlap
-
-# libsecnativefeature
-PRODUCT_PACKAGES += \
-    libsecnativefeature
 
 # ConfigStore
 PRODUCT_PACKAGES += \
@@ -295,4 +281,4 @@ $(call inherit-product, hardware/samsung_slsi/exynos5/empty.mk)
 $(call inherit-product, hardware/samsung_slsi/exynos7870/empty.mk)
 
 # Call the proprietary setup
-$(call inherit-product, vendor/samsung/gtaxlwifi/gtaxlwifi-vendor.mk)
+$(call inherit-product, vendor/samsung/gtaxl-common/gtaxl-common-vendor.mk)

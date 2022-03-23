@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/samsung/gtaxlwifi
+LOCAL_PATH := device/samsung/gtaxl-common
 
 BUILD_BROKEN_DUP_RULES := true
 
@@ -52,7 +52,6 @@ TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_CLANG_COMPILE := true
 TARGET_KERNEL_SOURCE := kernel/samsung/exynos7870
-TARGET_KERNEL_CONFIG := lineage-gtaxlwifi_defconfig
 TARGET_LINUX_KERNEL_VERSION := 3.18
 TARGET_KERNEL_ADDITIONAL_FLAGS := \
     HOSTCFLAGS="-fuse-ld=lld -Wno-unused-command-line-argument"
@@ -70,8 +69,6 @@ TARGET_CUSTOM_DTBTOOL := dtbhtoolExynos
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE     := 33554432
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 39845888
-BOARD_SYSTEMIMAGE_PARTITION_SIZE   := 3145728000
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 10737418240
 BOARD_CACHEIMAGE_PARTITION_SIZE    := 209715200
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE  := ext4
 BOARD_FLASH_BLOCK_SIZE := 4096
@@ -191,19 +188,13 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(LOCAL_PATH)
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/fstab.samsungexynos7870
 TARGET_RECOVERY_PIXEL_FORMAT := "ABGR_8888"
 
-# OTA assertions
-TARGET_OTA_ASSERT_DEVICE := gtaxlwifi,gtaxllte
-
 # Shims
 TARGET_LD_SHIM_LIBS += \
     /system/lib/libexynoscamera.so|libexynoscamera_shim.so
-
-# Vendor security patch level - P580ZSS1CTI1
-VENDOR_SECURITY_PATCH := 2020-09-01
 
 # SELinux
 BOARD_VENDOR_SEPOLICY_DIRS := $(LOCAL_PATH)/sepolicy
 SELINUX_IGNORE_NEVERALLOWS := true
 
 # Inherit from the proprietary version
--include vendor/samsung/gtaxlwifi/BoardConfigVendor.mk
+-include vendor/samsung/gtaxl-common/BoardConfigVendor.mk

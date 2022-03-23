@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "android.hardware.sensors@1.0-service.gtaxlwifi"
+#define LOG_TAG "android.hardware.sensors@1.0-service.gtaxl"
 
 #include <android/hardware/sensors/1.0/ISensors.h>
 #include <hidl/LegacySupport.h>

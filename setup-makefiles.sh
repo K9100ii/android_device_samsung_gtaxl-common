@@ -8,8 +8,7 @@
 
 set -e
 
-DEVICE=gtaxlwifi
-DEVICE_COMMON=gtaxlwifi
+DEVICE_COMMON=gtaxl-common
 VENDOR=samsung
 
 # Load extract_utils and do some sanity checks
@@ -26,17 +25,17 @@ fi
 source "${HELPER}"
 
 # Initialize the helper
-setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" true
+setup_vendor "${DEVICE_COMMON}" "${VENDOR}" "${ANDROID_ROOT}" true
 
 # Warning headers and guards
-write_headers "gtaxlwifi gtanotexlwifi"
+write_headers "gtaxlwifi gtanotexlwifi gtaxllte gtanotexllte"
 
 write_makefiles "${MY_DIR}/proprietary-files.txt" true
 
 ###################################################################################################
 # CUSTOM PART START                                                                               #
 ###################################################################################################
-OUTDIR=vendor/$VENDOR/$DEVICE
+OUTDIR=vendor/$VENDOR/$DEVICE_COMMON
 (cat << EOF) >> $ANDROID_ROOT/$OUTDIR/Android.mk
 include \$(CLEAR_VARS)
 LOCAL_MODULE := libGLES_mali
@@ -75,7 +74,7 @@ include \$(BUILD_PREBUILT)
 
 EOF
 
-(cat << EOF) >> $ANDROID_ROOT/$OUTDIR/$DEVICE-vendor.mk
+(cat << EOF) >> $ANDROID_ROOT/$OUTDIR/$DEVICE_COMMON-vendor.mk
 
 # Create Mali symlinks for Vulkan and OpenCL
 PRODUCT_PACKAGES += libGLES_mali

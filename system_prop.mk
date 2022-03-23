@@ -49,10 +49,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.stagefright.ccodec=0
 
-# Radio
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.radio.noril=yes
-
 # sdcardfs
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sys.sdcardfs=true

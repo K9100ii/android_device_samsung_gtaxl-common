@@ -1,6 +1,7 @@
 import /vendor/etc/init/hw/init.samsungexynos7870.usb.rc
 import /vendor/etc/init/hw/init.wifi.rc
 import /vendor/etc/init/hw/init.power.rc
+import /vendor/etc/init/hw/init.target.rc
 
 # Samsung stock init.rc additions
 import /vendor/etc/init/hw/init.samsung.rc
@@ -13,6 +14,7 @@ on early-init
 
 on init
     symlink /dev/block/platform/13540000.dwmmc0/by-name/PERSISTENT /dev/block/persistent
+    symlink /dev/block/platform/13540000.dwmmc0/by-name/STEADY /dev/block/steady
 
 on post-fs-data
     # C-STATE
@@ -21,21 +23,6 @@ on post-fs-data
 
     # CPU Idle
     chown system system /sys/module/cpuidle_exynos64/parameters/enable_mask
-
-    # GPS
-    chown root system /dev/ttySAC1
-    chmod 0660 /dev/ttySAC1
-    chown root system /sys/class/sec/gps/GPS_PWR_EN/value
-    chmod 0664 /sys/class/sec/gps/GPS_PWR_EN/value
-    mkdir /data/system 0771 system system
-    chown system system /data/system
-    mkdir /data/system/gps 0771 system system
-    chown system system /data/system/gps
-    rm /data/system/gps/gps_started
-    rm /data/system/gps/glonass_started
-    rm /data/system/gps/beidou_started
-    rm /data/system/gps/smd_started
-    rm /data/system/gps/sv_cno.info
 
     setprop vold.post_fs_data_done 1
 
@@ -201,14 +188,6 @@ on fs
     chown system radio /sys/class/camera/front/front_caminfo
     chown system radio /sys/class/camera/front/front_sensorid
     chown system system /sys/devices/svc/Camera/SVC_rear_module
-
-# GPS
-service gpsd /vendor/bin/hw/gpsd -c /vendor/etc/gps.xml
-    class hal
-    user gps
-    group system inet net_raw wakelock
-    ioprio be 0
-    seclabel u:r:gpsd:s0
 
 # Offline charging
 service charger /system/bin/charger
