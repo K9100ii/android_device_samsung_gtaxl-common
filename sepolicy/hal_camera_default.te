@@ -3,4 +3,7 @@ allow hal_camera_default sysfs_camera:file { getattr open read write };
 
 allow hal_camera_default hal_graphics_mapper_hwservice:hwservice_manager find;
 
+get_prop(hal_camera_default, default_prop)
+get_prop(hal_camera_default, system_prop)
+
 vndbinder_use(hal_camera_default)
