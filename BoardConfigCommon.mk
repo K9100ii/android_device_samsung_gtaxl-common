@@ -189,7 +189,7 @@ TARGET_RECOVERY_PIXEL_FORMAT := "ABGR_8888"
 
 # Shims
 TARGET_LD_SHIM_LIBS += \
-    /system/lib/libexynoscamera.so|libexynoscamera_shim.so
+    /vendor/lib/libexynoscamera.so|libexynoscamera_shim.so
 
 # SELinux
 BOARD_VENDOR_SEPOLICY_DIRS := $(LOCAL_PATH)/sepolicy
