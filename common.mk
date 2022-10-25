@@ -284,8 +284,5 @@ PRODUCT_PACKAGES += \
 PRODUCT_SOONG_NAMESPACES += \
     $(COMMON_PATH)
 
-# Properties
--include $(COMMON_PATH)/system_prop.mk
-
 # Call the proprietary setup
 $(call inherit-product, vendor/samsung/gtaxl-common/gtaxl-common-vendor.mk)
