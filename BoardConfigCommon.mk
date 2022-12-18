@@ -184,6 +184,9 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(LOCAL_PATH)
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/fstab.samsungexynos7870
 TARGET_RECOVERY_PIXEL_FORMAT := "ABGR_8888"
 
+# Vendor security patch level - P580ZSS1CTI1
+VENDOR_SECURITY_PATCH := 2020-09-01
+
 # Shims
 TARGET_LD_SHIM_LIBS += \
     /vendor/lib/libexynoscamera.so|libexynoscamera_shim.so
