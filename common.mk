@@ -133,6 +133,10 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-service \
     camera.universal7870
 
+# 32-bit OSS libsecnativefeature
+PRODUCT_PACKAGES += \
+    libsecnativefeature
+
 # Shims
 PRODUCT_PACKAGES += \
     libexynoscamera_shim
