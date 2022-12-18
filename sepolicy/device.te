@@ -12,3 +12,7 @@ type secmem_device, dev_type;
 
 # GPS
 type gps_device, dev_type;
+
+# Radio
+type radio_block_device, dev_type;
+type vendor_radio_device, dev_type;

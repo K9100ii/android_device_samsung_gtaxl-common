@@ -3,7 +3,6 @@ type gpsd_exec, exec_type, file_type, vendor_file_type;
 
 init_daemon_domain(gpsd)
 
-type gps_data_file, file_type, core_data_file_type, data_file_type;
 file_type_auto_trans(gpsd, system_data_file, gps_data_file);
 
 unix_socket_connect(gpsd, property, netd)
@@ -22,10 +21,17 @@ allow gpsd sysfs_gps:lnk_file read;
 allow gpsd sysfs_wake_lock:file { open read write };
 
 allow gpsd gps_device:chr_file { setattr rw_file_perms };
+allow gpsd vendor_radio_device:chr_file { ioctl open read };
 
-allow gpsd gps_data_file:dir { search write add_name remove_name };
-allow gpsd gps_data_file:file { create rw_file_perms };
+# /data/system/gps
+allow gpsd gps_data_file:dir { search open read write add_name remove_name };
+allow gpsd gps_data_file:file { create rename unlink rw_file_perms };
 allow gpsd gps_data_file:fifo_file create_file_perms;
+
+# /data/vendor/gps
+allow gpsd gps_vendor_data_file:dir { search open read write add_name remove_name };
+allow gpsd gps_vendor_data_file:file { create rename unlink rw_file_perms };
+allow gpsd gps_vendor_data_file:fifo_file create_file_perms;
 
 dontaudit gpsd system_data_file:dir search;
 
@@ -36,3 +42,13 @@ allow gpsd self:udp_socket create_socket_perms;
 
 allow gpsd hwservicemanager_prop:file { getattr open read };
 allow gpsd hwservicemanager:binder call;
+
+allow gpsd rild:unix_stream_socket connectto;
+
+allow gpsd self:capability net_raw;
+allow gpsd self:capability2 block_suspend;
+
+get_prop(gpsd, vendor_radio_prop)
+get_prop(gpsd, telephony_config_prop)
+get_prop(gpsd, exported_config_prop)
+get_prop(gpsd, bootanim_system_prop);

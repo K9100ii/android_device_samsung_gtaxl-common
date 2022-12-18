@@ -1,4 +1,22 @@
+# cbd
+vendor.cbd.                  u:object_r:vendor_cbd_prop:s0
+persist.vendor.cbd.          u:object_r:vendor_radio_prop:s0
+
+# Radio
+ro.vendor.multisim.          u:object_r:vendor_radio_prop:s0
+ro.vendor.radio.             u:object_r:vendor_radio_prop:s0
+ro.csc.                      u:object_r:exported_config_prop:s0
+mdc.                         u:object_r:exported_config_prop:s0
+persist.sys.omc_support      u:object_r:exported_config_prop:s0
+persist.sys.omc_etcpath      u:object_r:exported_config_prop:s0
+ro.omc.                      u:object_r:exported_config_prop:s0
+ril.NwNmId                   u:object_r:telephony_config_prop:s0
+ril.NwNmId2                  u:object_r:telephony_config_prop:s0
+ro.simbased.changetype       u:object_r:telephony_config_prop:s0
+
+# Bluetooth
 vendor.wc_transport.         u:object_r:vendor_bluetooth_prop:s0
 
+# WiFi
 vendor.wlan.driver.version   u:object_r:vendor_wlan_prop:s0
 vendor.wlan.firmware.version u:object_r:vendor_wlan_prop:s0

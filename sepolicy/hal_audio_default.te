@@ -1,1 +1,4 @@
 allow hal_audio_default adb_data_file:file { getattr open read execute };
+allow hal_audio_default rild:unix_stream_socket connectto;
+
+binder_call(hal_audio_default, system_suspend_server)
