@@ -53,3 +53,22 @@ genfscon sysfs /devices/12c30000.mfc0/video7/name                               
 
 # Lights
 genfscon sysfs /devices/virtual/sec/sec_touchkey/brightness                                       u:object_r:sysfs_light:s0
+
+## gtaxl*-specific sysfs
+# Battery
+genfscon sysfs /devices/13870000.i2c/i2c-4/4-0049/sm5703-charger/power_supply/otg/type            u:object_r:sysfs_battery:s0
+genfscon sysfs /devices/13870000.i2c/i2c-4/4-0049/sm5703-charger/power_supply/sm5703-charger/type u:object_r:sysfs_battery:s0
+genfscon sysfs /devices/13830000.i2c/i2c-8/8-0071/power_supply/sm5703-fuelgauge/type              u:object_r:sysfs_battery:s0
+
+# Input
+genfscon sysfs /devices/13840000.i2c/i2c-7/7-0049/input/input1/enabled                            u:object_r:sysfs_input:s0
+
+## gtanotexl*-specific sysfs
+# Battery
+genfscon sysfs /devices/13870000.i2c/i2c-5/5-0049/sm5703-charger/power_supply/otg/type            u:object_r:sysfs_battery:s0
+genfscon sysfs /devices/13870000.i2c/i2c-5/5-0049/sm5703-charger/power_supply/sm5703-charger/type u:object_r:sysfs_battery:s0
+genfscon sysfs /devices/13830000.i2c/i2c-9/9-0071/power_supply/sm5703-fuelgauge/type              u:object_r:sysfs_battery:s0
+
+# Input
+genfscon sysfs /devices/13840000.i2c/i2c-8/8-0049/input/input1/enabled                            u:object_r:sysfs_input:s0
+genfscon sysfs /devices/virtual/sec/sec_epen/                                                     u:object_r:sysfs_input:s0
