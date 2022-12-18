@@ -118,6 +118,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-service.software
 
+# GPS
+PRODUCT_PACKAGES += \
+    android.hardware.gnss@1.0-impl \
+    android.hardware.gnss@1.0-service
+
 # Touch features
 PRODUCT_PACKAGES += \
     vendor.lineage.touch@1.0-service.samsung
