@@ -77,10 +77,6 @@ vendor/firmware/mfc_fw.bin
 vendor/etc/init/android.hardware.drm@1.4-service.widevine.rc
 -vendor/bin/hw/android.hardware.drm@1.4-service.widevine
 
-# aptX - from "bonito-user 12 SP2A.220405.003 8210211 release-keys"
--system_ext/lib64/libaptXHD_encoder.so
--system_ext/lib64/libaptX_encoder.so
-
 # Sensors - from P580ZSS1CTI1
 -vendor/lib/hw/sensors.universal7870.so
 

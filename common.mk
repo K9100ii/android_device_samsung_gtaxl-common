@@ -178,7 +178,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-impl \
     android.hardware.bluetooth@1.0-service \
-    libbt-vendor
+    libbt-vendor \
+    libaptX_encoder \
+    libaptXHD_encoder
 
 # Audio
 PRODUCT_PACKAGES += \
