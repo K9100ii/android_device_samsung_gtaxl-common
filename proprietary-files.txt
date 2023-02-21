@@ -29,7 +29,7 @@ vendor/firmware/mfc_fw.bin
 -vendor/lib/egl/libGLES_mali.so
 -vendor/lib64/egl/libGLES_mali.so
 
-# OMX - from A520FXXUGCTKA
+# OMX - from A720SKSU5CUJ2
 # All references to /system/ in paths within these blobs have been replaced with /vendor/
 # to get them working after moving them to vendor:
 #  $ sed -i "s|/system/|/vendor/|" vendor/lib*/*OMX*
