@@ -68,26 +68,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml
 
-# BSP
-PRODUCT_PACKAGES += \
-    hwcomposer.exynos5 \
-    gralloc.exynos5 \
-    memtrack.exynos5 \
-    libcsc \
-    libexynosdisplay \
-    libexynosgscaler \
-    libExynosHWCService \
-    libexynosscaler \
-    libexynosutils \
-    libexynosv4l2 \
-    libfimg \
-    libhdmi \
-    libhwcutils \
-    libhwjpeg \
-    libion_exynos \
-    libmpp \
-    libstagefrighthw
-
 # Graphics
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl \
@@ -96,8 +76,13 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@2.0-impl-2.1 \
     android.hardware.memtrack@1.0-impl \
     android.hardware.memtrack@1.0-service \
-    libhwc2on1adapter \
-    libion
+    gralloc.exynos7870 \
+    hwcomposer.exynos7870 \
+    libhwc2on1adapter
+
+# Memtrack
+PRODUCT_PACKAGES += \
+    memtrack.exynos7870
 
 # seccomp policy
 PRODUCT_COPY_FILES += \
@@ -135,7 +120,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service \
-    camera.universal7870
+    camera.universal7870 \
+    libcsc \
+    libhwjpeg
 
 # 32-bit OSS libsecnativefeature
 PRODUCT_PACKAGES += \
@@ -200,7 +187,7 @@ PRODUCT_PACKAGES += \
     libtinycompress
 
 PRODUCT_PACKAGES += \
-    audio.primary.universal7870_32
+    audio.primary.exynos7870_32
 
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/audio/mixer_paths_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_0.xml \
@@ -224,6 +211,21 @@ PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/media/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
     $(COMMON_PATH)/configs/media/media_codecs_performance_c2.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance_c2.xml \
     $(COMMON_PATH)/configs/media/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
+
+# OMX
+PRODUCT_PACKAGES += \
+    libstagefrighthw \
+    libExynosOMX_Core \
+    libExynosOMX_Resourcemanager \
+    libOMX.Exynos.AVC.Decoder \
+    libOMX.Exynos.AVC.Encoder \
+    libOMX.Exynos.HEVC.Decoder \
+    libOMX.Exynos.HEVC.Encoder \
+    libOMX.Exynos.MPEG4.Decoder \
+    libOMX.Exynos.MPEG4.Encoder \
+    libOMX.Exynos.VP8.Decoder \
+    libOMX.Exynos.VP8.Encoder \
+    libOMX.Exynos.WMV.Decoder
 
 # HIDL
 PRODUCT_PACKAGES += \
@@ -282,11 +284,6 @@ PRODUCT_SOONG_NAMESPACES += \
 
 # Properties
 -include $(COMMON_PATH)/system_prop.mk
-
-# Call empty .mk files present in the BSP sources to make sure they exist
-$(call inherit-product, hardware/samsung_slsi/exynos/empty.mk)
-$(call inherit-product, hardware/samsung_slsi/exynos5/empty.mk)
-$(call inherit-product, hardware/samsung_slsi/exynos7870/empty.mk)
 
 # Call the proprietary setup
 $(call inherit-product, vendor/samsung/gtaxl-common/gtaxl-common-vendor.mk)

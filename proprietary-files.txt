@@ -29,34 +29,6 @@ vendor/firmware/mfc_fw.bin
 -vendor/lib/egl/libGLES_mali.so
 -vendor/lib64/egl/libGLES_mali.so
 
-# OMX - from A720SKSU5CUJ2
-# All references to /system/ in paths within these blobs have been replaced with /vendor/
-# to get them working after moving them to vendor:
-#  $ sed -i "s|/system/|/vendor/|" vendor/lib*/*OMX*
-#  $ sed -i "s|/system/|/vendor/|" vendor/lib*/omx/*
--vendor/lib/libExynosOMX_Core.so;MODULE=libExynosOMX_Core.proprietary
--vendor/lib/libExynosOMX_Resourcemanager.so;MODULE=libExynosOMX_Resourcemanager.proprietary
--vendor/lib/omx/libOMX.Exynos.AVC.Decoder.so;MODULE=libOMX.Exynos.AVC.Decoder.proprietary
--vendor/lib/omx/libOMX.Exynos.AVC.Encoder.so;MODULE=libOMX.Exynos.AVC.Encoder.proprietary
--vendor/lib/omx/libOMX.Exynos.HEVC.Decoder.so;MODULE=libOMX.Exynos.HEVC.Decoder.proprietary
--vendor/lib/omx/libOMX.Exynos.HEVC.Encoder.so;MODULE=libOMX.Exynos.HEVC.Encoder.proprietary
--vendor/lib/omx/libOMX.Exynos.MPEG4.Decoder.so;MODULE=libOMX.Exynos.MPEG4.Decoder.proprietary
--vendor/lib/omx/libOMX.Exynos.MPEG4.Encoder.so;MODULE=libOMX.Exynos.MPEG4.Encoder.proprietary
--vendor/lib/omx/libOMX.Exynos.VP8.Decoder.so;MODULE=libOMX.Exynos.VP8.Decoder.proprietary
--vendor/lib/omx/libOMX.Exynos.VP8.Encoder.so;MODULE=libOMX.Exynos.VP8.Encoder.proprietary
--vendor/lib/omx/libOMX.Exynos.WMV.Decoder.so;MODULE=libOMX.Exynos.WMV.Decoder.proprietary
--vendor/lib64/libExynosOMX_Core.so;MODULE=libExynosOMX_Core.proprietary
--vendor/lib64/libExynosOMX_Resourcemanager.so;MODULE=libExynosOMX_Resourcemanager.proprietary
--vendor/lib64/omx/libOMX.Exynos.AVC.Decoder.so;MODULE=libOMX.Exynos.AVC.Decoder.proprietary
--vendor/lib64/omx/libOMX.Exynos.AVC.Encoder.so;MODULE=libOMX.Exynos.AVC.Encoder.proprietary
--vendor/lib64/omx/libOMX.Exynos.HEVC.Decoder.so;MODULE=libOMX.Exynos.HEVC.Decoder.proprietary
--vendor/lib64/omx/libOMX.Exynos.HEVC.Encoder.so;MODULE=libOMX.Exynos.HEVC.Encoder.proprietary
--vendor/lib64/omx/libOMX.Exynos.MPEG4.Decoder.so;MODULE=libOMX.Exynos.MPEG4.Decoder.proprietary
--vendor/lib64/omx/libOMX.Exynos.MPEG4.Encoder.so;MODULE=libOMX.Exynos.MPEG4.Encoder.proprietary
--vendor/lib64/omx/libOMX.Exynos.VP8.Decoder.so;MODULE=libOMX.Exynos.VP8.Decoder.proprietary
--vendor/lib64/omx/libOMX.Exynos.VP8.Encoder.so;MODULE=libOMX.Exynos.VP8.Encoder.proprietary
--vendor/lib64/omx/libOMX.Exynos.WMV.Decoder.so;MODULE=libOMX.Exynos.WMV.Decoder.proprietary
-
 # Camera - from P580ZSS1CTI1
 # camera.vendor.universal7870.so was taken directly from /system/lib/hw/camera.exynos7870.so
 -vendor/lib/hw/camera.vendor.universal7870.so

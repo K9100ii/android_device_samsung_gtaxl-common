@@ -22,7 +22,7 @@ include $(call all-makefiles-under,$(LOCAL_PATH))
 
 include $(CLEAR_VARS)
 
-EGL_LIBS := libOpenCL.so libOpenCL.so.1 libOpenCL.so.1.1 vulkan.exynos5.so
+EGL_LIBS := libOpenCL.so libOpenCL.so.1 libOpenCL.so.1.1 vulkan.universal7870.so
 
 EGL_32_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR)/lib/,$(EGL_LIBS))
 $(EGL_32_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
