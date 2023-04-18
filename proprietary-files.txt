@@ -49,8 +49,5 @@ vendor/firmware/mfc_fw.bin
 vendor/etc/init/android.hardware.drm@1.4-service.widevine.rc
 -vendor/bin/hw/android.hardware.drm@1.4-service.widevine
 
-# Sensors - from P580ZSS1CTI1
--vendor/lib/hw/sensors.universal7870.so
-
 # wcnss_filter - for Bluetooth - not from any stock firmware, built from source
 -vendor/bin/wcnss_filter

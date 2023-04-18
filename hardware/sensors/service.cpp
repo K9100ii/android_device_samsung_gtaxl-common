@@ -1,5 +1,6 @@
 /*
- * Copyright (C) 2016 The Android Open Source Project
+ * Copyright (C) 2018 The Android Open Source Project
+ * Copyright (C) 2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,18 +15,28 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "android.hardware.sensors@1.0-service.gtaxl"
+#define LOG_TAG "android.hardware.sensors@2.1-service"
 
-#include <android/hardware/sensors/1.0/ISensors.h>
-#include <hidl/LegacySupport.h>
+#include <android/hardware/sensors/2.1/ISensors.h>
+#include <hidl/HidlTransportSupport.h>
+#include <log/log.h>
+#include <utils/StrongPointer.h>
+#include "Sensors.h"
 
-using android::hardware::sensors::V1_0::ISensors;
-using android::hardware::defaultPassthroughServiceImplementation;
+using android::hardware::configureRpcThreadpool;
+using android::hardware::joinRpcThreadpool;
+using android::hardware::sensors::V2_1::ISensors;
+using android::hardware::sensors::V2_X::implementation::Sensors;
 
-int main() {
-    /* Sensors framework service needs at least two threads.
-     * One thread blocks on a "poll"
-     * The second thread is needed for all other HAL methods.
-     */
-    return defaultPassthroughServiceImplementation<ISensors>(2);
+int main(int /* argc */, char** /* argv */) {
+    configureRpcThreadpool(1, true);
+
+    android::sp<ISensors> sensors = new Sensors();
+    if (sensors->registerAsService() != ::android::OK) {
+        ALOGE("Failed to register Sensors HAL instance");
+        return -1;
+    }
+
+    joinRpcThreadpool();
+    return 1;  // joinRpcThreadpool shouldn't exit
 }

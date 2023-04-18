@@ -251,8 +251,7 @@ PRODUCT_PACKAGES += \
 
 # Sensors
 PRODUCT_PACKAGES += \
-    android.hardware.sensors@1.0-impl \
-    android.hardware.sensors@1.0-service.gtaxl
+    android.hardware.sensors@2.1-service.gtaxl
 
 # Trust HAL
 PRODUCT_PACKAGES += \
