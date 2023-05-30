@@ -57,6 +57,9 @@ genfscon sysfs /devices/12c30000.mfc0/video7/name                               
 # Lights
 genfscon sysfs /devices/virtual/sec/sec_touchkey/brightness                                       u:object_r:sysfs_light:s0
 
+# Device tree
+genfscon sysfs /firmware/devicetree/                                                              u:object_r:sysfs_dt_firmware:s0
+
 ## gtaxl*-specific sysfs
 # Battery
 genfscon sysfs /devices/13870000.i2c/i2c-4/4-0049/sm5703-charger/power_supply/otg/type            u:object_r:sysfs_battery:s0

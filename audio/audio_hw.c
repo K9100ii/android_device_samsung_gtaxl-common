@@ -34,6 +34,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <dlfcn.h>
+#include <fcntl.h>
 
 #include <cutils/log.h>
 #include <cutils/str_parms.h>
@@ -433,8 +434,11 @@ static int mixer_init(struct audio_device *adev)
     int retry_num;
     struct mixer *mixer;
     struct audio_route *audio_route;
-    char mixer_path[PATH_MAX];
+    char mixer_paths_path[PATH_MAX];
+    char mixer_paths_filename[PATH_MAX];
+    char mixer_paths_fn_sysfs[PATH_MAX] = "/sys/firmware/devicetree/base/sound/mixer-paths";
     struct mixer_card *mixer_card;
+    int fd;
     int ret = 0;
 
     list_init(&adev->mixer_list);
@@ -456,18 +460,30 @@ static int mixer_init(struct audio_device *adev)
                 }
             } while (mixer == NULL);
 
-            sprintf(mixer_path, "/vendor/etc/mixer_paths_%d.xml", card);
-            if (access(mixer_path, F_OK) == -1) {
+            if (access(mixer_paths_fn_sysfs, F_OK) != -1) {
+                fd = open(mixer_paths_fn_sysfs, O_RDONLY);
+                if (fd != -1) {
+                    read(fd, mixer_paths_filename, sizeof(mixer_paths_filename) - 1);
+                }
+                close(fd);
+                ALOGI("%s: Using revision-specific mixer paths configuration: %s", __func__, mixer_paths_filename);
+            } else {
+                strcpy(mixer_paths_filename, "mixer_paths.xml");
+                ALOGI("%s: Using default mixer paths configuration: %s", __func__, mixer_paths_filename);
+            }
+
+            sprintf(mixer_paths_path, "/vendor/etc/%s", mixer_paths_filename);
+            if (access(mixer_paths_path, F_OK) == -1) {
                 ALOGW("%s: Failed to open mixer paths from %s, retrying with legacy location",
-                      __func__, mixer_path);
-                sprintf(mixer_path, "/system/etc/mixer_paths_%d.xml", card);
-                if (access(mixer_path, F_OK) == -1) {
+                      __func__, mixer_paths_path);
+                sprintf(mixer_paths_path, "/system/etc/%s", mixer_paths_filename);
+                if (access(mixer_paths_path, F_OK) == -1) {
                     ALOGE("%s: Failed to load a mixer paths configuration, your system will crash",
                           __func__);
                 }
             }
 
-            audio_route = audio_route_init(card, mixer_path);
+            audio_route = audio_route_init(card, mixer_paths_path);
             if (!audio_route) {
                 ALOGE("%s: Failed to init audio route controls for card %d, aborting.",
                       __func__, card);

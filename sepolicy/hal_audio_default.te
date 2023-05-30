@@ -1,4 +1,6 @@
 allow hal_audio_default adb_data_file:file { getattr open read execute };
 allow hal_audio_default rild:unix_stream_socket connectto;
+allow hal_audio_default sysfs_dt_firmware:dir search;
+allow hal_audio_default sysfs_dt_firmware:file { open read };
 
 binder_call(hal_audio_default, system_suspend_server)

@@ -23,6 +23,7 @@ type sysfs_brightness, sysfs_type, fs_type, mlstrustedobject;
 type sysfs_v4l, sysfs_type, fs_type, mlstrustedobject;
 type sysfs_light, sysfs_type, fs_type, mlstrustedobject;
 type sysfs_sensors, sysfs_type, fs_type, mlstrustedobject;
+type sysfs_dt_firmware, sysfs_type, fs_type, mlstrustedobject;
 
 # debugfs types
 type debugfs_ion, debugfs_type, fs_type;
