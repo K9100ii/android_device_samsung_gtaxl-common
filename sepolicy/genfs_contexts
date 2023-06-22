@@ -36,11 +36,16 @@ genfscon sysfs /devices/virtual/sec/sec_touchkey/touchkeys_enabled              
 
 # Sensors
 genfscon sysfs /devices/virtual/sensors/                                                          u:object_r:sysfs_sensors:s0
+genfscon sysfs /devices/virtual/sensor_event/                                                     u:object_r:sysfs_sensors:s0
 genfscon sysfs /devices/virtual/input/input0/                                                     u:object_r:sysfs_sensors:s0
 genfscon sysfs /devices/virtual/input/input2/                                                     u:object_r:sysfs_sensors:s0
 genfscon sysfs /devices/virtual/input/input3/                                                     u:object_r:sysfs_sensors:s0
 genfscon sysfs /devices/virtual/input/input4/                                                     u:object_r:sysfs_sensors:s0
 genfscon sysfs /devices/virtual/input/input5/                                                     u:object_r:sysfs_sensors:s0
+genfscon sysfs /devices/virtual/input/input6/                                                     u:object_r:sysfs_sensors:s0
+genfscon sysfs /devices/virtual/input/input7/                                                     u:object_r:sysfs_sensors:s0
+genfscon sysfs /devices/virtual/input/input8/                                                     u:object_r:sysfs_sensors:s0
+genfscon sysfs /devices/virtual/input/input9/                                                     u:object_r:sysfs_sensors:s0
 
 # Brightness
 genfscon sysfs /devices/14800000.dsim/backlight/panel/brightness                                  u:object_r:sysfs_brightness:s0
