@@ -184,7 +184,8 @@ PRODUCT_PACKAGES += \
     audio.bluetooth.default \
     audio.usb.default \
     audio.r_submix.default \
-    libtinycompress
+    libtinycompress \
+    tinymix
 
 PRODUCT_PACKAGES += \
     audio.primary.exynos7870_32
