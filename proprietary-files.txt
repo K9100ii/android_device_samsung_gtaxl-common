@@ -12,7 +12,7 @@ vendor/firmware/utf30.bin
 vendor/firmware/utfbd30.bin
 vendor/firmware/utfbd32.bin
 
-# Bluetooth firmware - from T395XXSDCVA1
+# Bluetooth firmware - from P585MUBU2CUF2
 vendor/firmware/nvm_tlv_tf_1.1.bin
 vendor/firmware/rampatch_tlv_tf_1.1.tlv
 
