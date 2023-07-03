@@ -1,0 +1,12 @@
+cc_library_static {
+    name: "libinit_gtaxl",
+    recovery_available: true,
+    srcs: [
+        "init_gtaxl.cpp",
+    ],
+    whole_static_libs: ["libbase"],
+    include_dirs: [
+        "system/libbase/include",
+        "system/core/init",
+    ],
+}
