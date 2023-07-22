@@ -207,6 +207,9 @@
 	</path>
 
 	<path name="dev-codec-out-disable">
+		<ctl name="HP Switch" value="0" />
+		<ctl name="SPK Switch" value="0" />
+		<ctl name="RCV Switch" value="0" />
 	</path>
 
 	<path name="dev-bt-headset">
