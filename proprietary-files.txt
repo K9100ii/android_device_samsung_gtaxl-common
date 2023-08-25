@@ -7,16 +7,15 @@
 -vendor/lib/libuniplugin.so
 -vendor/lib/hw/camera.vendor.universal7870.so
 
-# DRM - from "bonito-user 12 SP2A.220405.003 8210211 release-keys"
-# Modifcations made:
-# * The libprotobuf-cpp-lite-3.9.1.so dependency in libwvhidl.so
+# DRM - from "sunfish-user 13 TQ3A.230805.001 10316531 release-keys"
+# Only modifcation made:
+# * The libprotobuf-cpp-lite-3.9.1.so dependency in libwvaidl.so
 #   has been replaced with libprotobuf-cpp-lite.so:
-# $ patchelf --replace-needed libprotobuf-cpp-lite-3.9.1.so libprotobuf-cpp-lite.so libwvhidl.so
-# * The useless vendor.move_data_sh service has been removed from
-#   android.hardware.drm@1.4-service.widevine.rc
--vendor/bin/hw/android.hardware.drm@1.4-service.widevine
-vendor/etc/init/android.hardware.drm@1.4-service.widevine.rc
--vendor/lib64/libwvhidl.so
+# $ ../../../../prebuilts/extract-tools/linux-x86/bin/patchelf-0_9 --replace-needed libprotobuf-cpp-lite-3.9.1.so libprotobuf-cpp-lite.so vendor/lib64/libwvaidl.so
+-vendor/lib64/libwvaidl.so
+vendor/etc/init/android.hardware.drm-service.widevine.rc
+vendor/etc/vintf/manifest/manifest_android.hardware.drm-service.widevine.xml
+-vendor/bin/hw/android.hardware.drm-service.widevine
 
 # Firmware - Bluetooth - from P585MUBU2CUF2
 vendor/firmware/nvm_tlv_tf_1.1.bin
