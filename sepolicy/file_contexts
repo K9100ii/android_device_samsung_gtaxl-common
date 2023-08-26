@@ -75,6 +75,7 @@
 
 /(vendor|system/vendor)/bin/wcnss_filter                                  u:object_r:wcnss_filter_exec:s0
 
+/(vendor|system/vendor)/bin/hw/android\.hardware\.audio\.service\.gtaxl			u:object_r:hal_audio_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.sensors@1\.0-service\.gtaxl		u:object_r:hal_sensors_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.drm-service\.clearkey			u:object_r:hal_drm_clearkey_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.drm-service\.widevine			u:object_r:hal_drm_widevine_exec:s0
