@@ -25,7 +25,7 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.service.gtaxl \
     android.hardware.audio@7.0-impl \
     android.hardware.audio.effect@7.0-impl \
-    android.hardware.bluetooth.audio-impl \
+    android.hardware.bluetooth.audio@2.1-impl \
     audio.bluetooth.default \
     audio.primary.exynos7870_32 \
     audio.r_submix.default \
