@@ -26,8 +26,10 @@
 
 #define LOG_TAG "bt_vendor"
 
-#include "bt_hci_bdroid.h"
 #include "bt_vendor_qcom.h"
+#if (HW_NEED_END_WITH_HCI_RESET == TRUE)
+#include "bt_hci_bdroid.h"
+#endif
 #include <ctype.h>
 #include <dirent.h>
 #include <errno.h>

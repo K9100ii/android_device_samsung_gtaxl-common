@@ -64,7 +64,7 @@ typedef enum {
     Default TRUE .
 */
 #ifndef HW_NEED_END_WITH_HCI_RESET
-#define HW_NEED_END_WITH_HCI_RESET TRUE
+#define HW_NEED_END_WITH_HCI_RESET FALSE
 #endif
 
 #define HCI_RESET  0x0C03

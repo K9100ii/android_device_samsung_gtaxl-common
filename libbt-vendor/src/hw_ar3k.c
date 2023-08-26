@@ -1271,17 +1271,17 @@ int ath3k_post(int fd, int pm)
 #define DISABLE_PM  0
 
 /* Initialize UART driver */
-static int init_uart(char *dev, struct uart_t *u, int send_break, int raw)
+static int init_uart(char *dev, struct uart_t *u, int send_break/*, int raw*/)
 {
     struct termios ti;
     //int i;
     int fd;
-    unsigned long flags = 0;
+    //unsigned long flags = 0;
 
     ALOGI(" %s ", __FUNCTION__);
 
-    if (raw)
-        flags |= 1 << HCI_UART_RAW_DEVICE;
+    /* if (raw)
+        flags |= 1 << HCI_UART_RAW_DEVICE; */
 
     fd = open(dev, O_RDWR | O_NOCTTY);
 
@@ -1366,7 +1366,7 @@ int hw_config_ath3k(char *port_name)
     ALOGI(" %s ", __FUNCTION__);
     PSCounter=0;
     struct uart_t u;
-    int n=0,send_break=0,raw=0;
+    int n=0,send_break=0/*,raw=0*/;
 
     memset(&u, 0, sizeof(u));
     u.speed =3000000;
@@ -1374,7 +1374,7 @@ int hw_config_ath3k(char *port_name)
     u.flags |= FLOW_CTL;
     u.pm = DISABLE_PM;
 
-    n = init_uart(port_name, &u, send_break, raw);
+    n = init_uart(port_name, &u, send_break/*, raw*/);
     if (n < 0) {
         ALOGI("Can't initialize device");
     }

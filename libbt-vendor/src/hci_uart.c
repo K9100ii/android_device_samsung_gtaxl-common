@@ -232,8 +232,6 @@ void userial_vendor_init(void)
 int userial_vendor_open(tUSERIAL_CFG *p_cfg)
 {
     uint32_t baud;
-    uint8_t data_bits;
-    uint16_t parity;
     uint8_t stop_bits;
 
     vnd_userial.fd = -1;
@@ -243,27 +241,18 @@ int userial_vendor_open(tUSERIAL_CFG *p_cfg)
         return -1;
     }
 
-    if(p_cfg->fmt & USERIAL_DATABITS_8)
-        data_bits = CS8;
-    else if(p_cfg->fmt & USERIAL_DATABITS_7)
-        data_bits = CS7;
-    else if(p_cfg->fmt & USERIAL_DATABITS_6)
-        data_bits = CS6;
-    else if(p_cfg->fmt & USERIAL_DATABITS_5)
-        data_bits = CS5;
-    else
+    if (!((p_cfg->fmt & USERIAL_DATABITS_8) ||
+          (p_cfg->fmt & USERIAL_DATABITS_7) ||
+          (p_cfg->fmt & USERIAL_DATABITS_6) ||
+          (p_cfg->fmt & USERIAL_DATABITS_5)))
     {
         ALOGE("userial vendor open: unsupported data bits");
         return -1;
     }
 
-    if(p_cfg->fmt & USERIAL_PARITY_NONE)
-        parity = 0;
-    else if(p_cfg->fmt & USERIAL_PARITY_EVEN)
-        parity = PARENB;
-    else if(p_cfg->fmt & USERIAL_PARITY_ODD)
-        parity = (PARENB | PARODD);
-    else
+    if (!((p_cfg->fmt & USERIAL_PARITY_NONE) ||
+          (p_cfg->fmt & USERIAL_PARITY_EVEN) ||
+          (p_cfg->fmt & USERIAL_PARITY_ODD)))
     {
         ALOGE("userial vendor open: unsupported parity bit mode");
         return -1;

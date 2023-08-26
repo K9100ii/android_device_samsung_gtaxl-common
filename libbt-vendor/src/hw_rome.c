@@ -1794,7 +1794,7 @@ static int disable_internal_ldo(int fd)
 
 int rome_soc_init(int fd, char *bdaddr)
 {
-    int err = -1, size = 0;
+    int err = -1;
     dnld_fd = fd;
     ALOGI(" %s ", __FUNCTION__);
     RESERVED(bdaddr);
@@ -1840,7 +1840,6 @@ int rome_soc_init(int fd, char *bdaddr)
                 ALOGI("%s: ATTACH RAMPTACH complete", __FUNCTION__);
 
                 /* Send Reset */
-                size = (HCI_CMD_IND + HCI_COMMAND_HDR_SIZE + EDL_PATCH_CMD_LEN);
                 err = rome_rampatch_reset(fd);
                 if ( err < 0 ) {
                     ALOGE("Failed to RESET after RAMPATCH upgrade!");
