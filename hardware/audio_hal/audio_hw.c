@@ -677,7 +677,6 @@ static snd_device_t get_input_snd_device(struct audio_device *adev, audio_device
     audio_source_t  source;
     audio_mode_t    mode   = adev->mode;
     audio_devices_t in_device;
-    audio_channel_mask_t channel_mask;
     snd_device_t snd_device = SND_DEVICE_NONE;
     struct stream_in *active_input = NULL;
     struct audio_usecase *usecase;
@@ -692,8 +691,6 @@ static snd_device_t get_input_snd_device(struct audio_device *adev, audio_device
     in_device = (active_input == NULL) ?
                     AUDIO_DEVICE_NONE :
                     (active_input->devices & ~AUDIO_DEVICE_BIT_IN);
-    channel_mask = (active_input == NULL) ?
-                                AUDIO_CHANNEL_IN_MONO : active_input->main_channels;
 
     ALOGV("%s: enter: out_device(%#x) in_device(%#x)",
           __func__, out_device, in_device);
@@ -3213,8 +3210,6 @@ static int in_close_pcm_devices(struct stream_in *in)
 /* must be called with stream and hw device mutex locked */
 static int do_in_standby_l(struct stream_in *in)
 {
-    int status = 0;
-
 #ifdef PREPROCESSING_ENABLED
     struct audio_device *adev = in->dev;
 #endif
@@ -3231,7 +3226,7 @@ static int do_in_standby_l(struct stream_in *in)
         }
 #endif  // PREPROCESSING_ENABLED
 
-        status = stop_input_stream(in);
+        stop_input_stream(in);
 
         if (in->read_buf) {
             free(in->read_buf);
