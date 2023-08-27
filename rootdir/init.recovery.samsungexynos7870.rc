@@ -1,3 +1,6 @@
+on init
+    setprop ro.adb.secure.recovery 0
+
 on fs
     wait /dev/block/platform/13540000.dwmmc0
     symlink /dev/block/platform/13540000.dwmmc0 /dev/block/bootdevice
