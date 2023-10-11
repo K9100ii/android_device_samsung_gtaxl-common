@@ -171,10 +171,6 @@
 		<ctl name="SPKR Power Up(1:Up_0:Down)" value="1" />
 		<ctl name="SPKL Speaker Mute Switch(1:muted_0:un)" value="0" />
 		<ctl name="SPKR Speaker Mute Switch(1:muted_0:un)" value="0" />
-		<ctl name="Stereo1 DAC MIXL DAC L1 Switch" value="0"/>
-		<ctl name="Stereo1 DAC MIXR DAC R1 Switch" value="0"/>
-		<ctl name="HEADPHONE Switch" value="0" />
-		<ctl name="RECEIVER Switch" value="0" />
 	</path>
 
 	<path name="dev-speaker-poweroff">
@@ -184,30 +180,23 @@
 		<ctl name="SPKR Power Up(1:Up_0:Down)" value="0" />
 	</path>
 
+	<path name="dev-speaker-mute">
+		<ctl name="SPKL Speaker Mute Switch(1:muted_0:un)" value="1" />
+		<ctl name="SPKR Speaker Mute Switch(1:muted_0:un)" value="1" />
+	</path>
+
 	<path name="dev-handset">
 		<ctl name="DAC L2 Mux" value="IF1 DAC2"/>
 		<ctl name="Mono DAC MIXL DAC L2 Switch" value="1"/>
 		<ctl name="Mono MIX DAC L2 Switch" value="1"/>
 		<ctl name="Mono Playback Switch" value="1"/>
 		<ctl name="RECEIVER Switch" value="1" />
-		<ctl name="Stereo1 DAC MIXL DAC L1 Switch" value="0"/>
-		<ctl name="Stereo1 DAC MIXR DAC R1 Switch" value="0"/>
-		<ctl name="HEADPHONE Switch" value="0" />
-		<ctl name="SPKL Speaker Mute Switch(1:muted_0:un)" value="1" />
-		<ctl name="SPKR Speaker Mute Switch(1:muted_0:un)" value="1" />
-		<ctl name="SPKL Power Up(1:Up_0:Down)" value="0" />
-		<ctl name="SPKR Power Up(1:Up_0:Down)" value="0" />
 	</path>
 
 	<path name="dev-headset">
 		<ctl name="Stereo1 DAC MIXL DAC L1 Switch" value="1"/>
 		<ctl name="Stereo1 DAC MIXR DAC R1 Switch" value="1"/>
 		<ctl name="HEADPHONE Switch" value="1" />
-		<ctl name="RECEIVER Switch" value="0" />
-		<ctl name="SPKL Speaker Mute Switch(1:muted_0:un)" value="1" />
-		<ctl name="SPKR Speaker Mute Switch(1:muted_0:un)" value="1" />
-		<ctl name="SPKL Power Up(1:Up_0:Down)" value="0" />
-		<ctl name="SPKR Power Up(1:Up_0:Down)" value="0" />
 	</path>
 
 	<path name="dev-headphone">
@@ -215,18 +204,8 @@
 	</path>
 
 	<path name="dev-speaker-headset">
-		<ctl name="SPKL LR_DATA_SW(1:swap_0:normal)" value="0" />
-		<ctl name="SPKR LR_DATA_SW(1:swap_0:normal)" value="1" />
-		<ctl name="SPKL PCM stereo/mono(1:S_0:M)" value="1" />
-		<ctl name="SPKR PCM stereo/mono(1:S_0:M)" value="1" />
-		<ctl name="SPKL Power Up(1:Up_0:Down)" value="1" />
-		<ctl name="SPKR Power Up(1:Up_0:Down)" value="1" />
-		<ctl name="SPKL Speaker Mute Switch(1:muted_0:un)" value="0" />
-		<ctl name="SPKR Speaker Mute Switch(1:muted_0:un)" value="0" />
-		<ctl name="Stereo1 DAC MIXL DAC L1 Switch" value="1"/>
-		<ctl name="Stereo1 DAC MIXR DAC R1 Switch" value="1"/>
-		<ctl name="HEADPHONE Switch" value="1" />
-		<ctl name="RECEIVER Switch" value="0" />
+		<path name="dev-speaker" />
+		<path name="dev-headset" />
 	</path>
 
 	<path name="dev-codec-out-disable">
@@ -302,6 +281,7 @@
 	<path name="media-headset">
 		<path name="route-ap" />
 		<path name="dev-headset" />
+		<path name="dev-speaker-poweroff" />
 		<ctl name="Disable NG2" value="0"/>
 	</path>
 
@@ -482,6 +462,7 @@
 	<path name="incall_nb-handset">
 		<path name="route-cp" />
 		<path name="dev-handset" />
+		<path name="dev-speaker-poweroff" />
 	</path>
 
 	<path name="incall_nb-speaker">
@@ -492,10 +473,12 @@
 	<path name="incall_nb-headset">
 		<path name="route-cp" />
 		<path name="dev-headset" />
+		<path name="dev-speaker-poweroff" />
 	</path>
 
 	<path name="incall_nb-headphone">
 		<path name="incall_nb-headset" />
+		<path name="dev-speaker-poweroff" />
 	</path>
 
 	<path name="incall_nb-bt-sco-headset">
@@ -686,12 +669,14 @@
 	<path name="loopback-headset">
 		<path name="route-cp" />
 		<path name="dev-headset" />
+		<path name="dev-speaker-poweroff" />
 	</path>
 
 	<!-- Packet Loopback -->
 	<path name="loopback_packet-handset">
 		<path name="route-cp" />
 		<path name="dev-handset" />
+		<path name="dev-speaker-poweroff" />
 	</path>
 
 	<path name="loopback_packet-speaker">
@@ -702,12 +687,14 @@
 	<path name="loopback_packet-headset">
 		<path name="route-cp" />
 		<path name="dev-headset" />
+		<path name="dev-speaker-poweroff" />
 	</path>
 
 	<!-- Realtime Loopback -->
 	<path name="realtimeloopback-handset">
 		<path name="route-ap" />
 		<path name="dev-handset" />
+		<path name="dev-speaker-poweroff" />
 	</path>
 
 	<path name="realtimeloopback-speaker">
@@ -718,6 +705,7 @@
 	<path name="realtimeloopback-headset">
 		<path name="route-ap" />
 		<path name="dev-headset" />
+		<path name="dev-speaker-poweroff" />
 	</path>
 
 	<!-- TTY Mode -->
