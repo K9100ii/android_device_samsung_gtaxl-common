@@ -35,7 +35,7 @@ LOCAL_SHARED_LIBRARIES := \
 	libprocessgroup \
 	libtinyalsa \
 	libtinycompress \
-	libaudioroute.exynos7870 \
+	libaudioroute \
 	libdl \
 	libsecril-client
 
