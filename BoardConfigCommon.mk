@@ -145,7 +145,7 @@ TARGET_LD_SHIM_LIBS += \
     /vendor/lib/libexynoscamera.so|libexynoscamera_shim.so
 
 # SELinux
-BOARD_VENDOR_SEPOLICY_DIRS := $(COMMON_PATH)/sepolicy
+BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy
 SELINUX_IGNORE_NEVERALLOWS := true
 
 # Inherit from the proprietary version
