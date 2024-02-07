@@ -757,20 +757,6 @@
 		<path name="dev-bt-mic" />
 	</path>
 
-	<!-- camcorder input -->
-	<path name="camcorder-mic">
-		<path name="route-ap" />
-		<path name="dev-dual-mic" />
-	</path>
-
-	<path name="camcorder-headset-mic">
-		<path name="media-headset-mic" />
-	</path>
-
-	<path name="camcorder-headphone-mic">
-		<path name="camcorder-mic" />
-	</path>
-
 	<!-- voice input -->
 	<path name="recording-mic">
 		<path name="media-mic" />
@@ -1887,16 +1873,6 @@
 		<ctl name="STO1 ADC Capture Volume" value="47 47"/>
 	</path>
 
-	<path name="gain-camcorder-headset-mic">
-		<ctl name="IN1 Boost Volume" value="53"/>
-		<ctl name="STO1 ADC Capture Volume" value="47 47"/>
-	</path>
-
-	<path name="gain-camcorder-headphone-mic">
-		<ctl name="IN3 Boost Volume" value="53"/>
-		<ctl name="STO1 ADC Capture Volume" value="47 47"/>
-	</path>
-
 	<!-- voice recording input volume -->
 
 	<path name="gain-recording-mic">
@@ -2620,6 +2596,12 @@
 	<path name="bt-sco-mic">
 		<path name="media-bt-sco-headset-in"/>
 		<path name="gain-media-bt-sco-headset-in"/>
+	</path>
+
+	<path name="camcorder-mic">
+		<path name="gain-camcorder-mic"/>
+		<path name="route-ap" />
+		<path name="dev-dual-mic" />
 	</path>
 
 	<path name="voice-rec-mic">
