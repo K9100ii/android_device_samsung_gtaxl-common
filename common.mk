@@ -262,10 +262,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service.basic
 
-# FlipFlap
-PRODUCT_PACKAGES += \
-    FlipFlap
-
 # ConfigStore
 PRODUCT_PACKAGES += \
     disable_configstore
