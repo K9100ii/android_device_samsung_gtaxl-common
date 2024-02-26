@@ -17,6 +17,9 @@
 # Inherit proprietary vendor blobs
 $(call inherit-product, vendor/samsung/gtaxl-common/gtaxl-common-vendor.mk)
 
+# Soong namespaces
+$(call inherit-product, hardware/samsung_slsi-linaro/config/config.mk)
+
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio.service \
