@@ -1,4 +1,37 @@
-# WiFi firmware - partly from T395XXSDCVA1, partly as in T585XXS6CTJ7
+# Camera - from P580ZSS1CTI1
+# camera.vendor.universal7870.so was taken directly from /system/lib/hw/camera.exynos7870.so
+-vendor/lib/libexynoscamera.so
+-vendor/lib/libexynoscamera3.so
+-vendor/lib/libsensorlistener.so
+-vendor/lib/libstainkiller.so
+-vendor/lib/libuniplugin.so
+-vendor/lib/hw/camera.vendor.universal7870.so
+
+# DRM - from "bonito-user 12 SP2A.220405.003 8210211 release-keys"
+# Modifcations made:
+# * The libprotobuf-cpp-lite-3.9.1.so dependency in libwvhidl.so
+#   has been replaced with libprotobuf-cpp-lite.so:
+# $ patchelf --replace-needed libprotobuf-cpp-lite-3.9.1.so libprotobuf-cpp-lite.so libwvhidl.so
+# * The useless vendor.move_data_sh service has been removed from
+#   android.hardware.drm@1.4-service.widevine.rc
+-vendor/bin/hw/android.hardware.drm@1.4-service.widevine
+vendor/etc/init/android.hardware.drm@1.4-service.widevine.rc
+-vendor/lib64/libwvhidl.so
+
+# Firmware - Bluetooth - from P585MUBU2CUF2
+vendor/firmware/nvm_tlv_tf_1.1.bin
+vendor/firmware/rampatch_tlv_tf_1.1.tlv
+
+# Firmware - Camera - from P580ZSS1CTI1
+vendor/firmware/fimc_is_lib.bin
+vendor/firmware/setfile_4h5yc.bin
+vendor/firmware/setfile_sr259.bin
+
+# Firmware - MFC (Multi Format Codec) - from A305FDDU6CUI3
+# Version information: "MFC v10.11, F/W: 20yy, 08mm, 31dd"
+vendor/firmware/mfc_fw.bin
+
+# Firmware - WiFi - partly from T395XXSDCVA1, partly as in T585XXS6CTJ7
 # bdwlan30.bin and utfbd30.bin are as in the T585XXS6CTJ7 firmware, and are also copies of bdwlan32.bin
 # and utfbd32.bin as in the T395XXSDCVA1 firmware respectively. With bdwlan30.bin and utfbd30.bin from
 # the T395XXSDCVA1 firmware, WiFi regulatory domain selection doesn't work properly.
@@ -12,42 +45,9 @@ vendor/firmware/utf30.bin
 vendor/firmware/utfbd30.bin
 vendor/firmware/utfbd32.bin
 
-# Bluetooth firmware - from P585MUBU2CUF2
-vendor/firmware/nvm_tlv_tf_1.1.bin
-vendor/firmware/rampatch_tlv_tf_1.1.tlv
-
-# Camera firmware - from P580ZSS1CTI1
-vendor/firmware/fimc_is_lib.bin
-vendor/firmware/setfile_4h5yc.bin
-vendor/firmware/setfile_sr259.bin
-
-# MFC (Multi Format Codec) firmware - from A305FDDU6CUI3
-# Version information: "MFC v10.11, F/W: 20yy, 08mm, 31dd"
-vendor/firmware/mfc_fw.bin
-
 # Mali graphics - r28p0 - from A720SKSU5CUJ2
 -vendor/lib/egl/libGLES_mali.so
 -vendor/lib64/egl/libGLES_mali.so
-
-# Camera - from P580ZSS1CTI1
-# camera.vendor.universal7870.so was taken directly from /system/lib/hw/camera.exynos7870.so
--vendor/lib/hw/camera.vendor.universal7870.so
--vendor/lib/libexynoscamera.so
--vendor/lib/libexynoscamera3.so
--vendor/lib/libsensorlistener.so
--vendor/lib/libuniplugin.so
--vendor/lib/libstainkiller.so
-
-# DRM - from "bonito-user 12 SP2A.220405.003 8210211 release-keys"
-# Modifcations made:
-# * The libprotobuf-cpp-lite-3.9.1.so dependency in libwvhidl.so
-#   has been replaced with libprotobuf-cpp-lite.so:
-# $ patchelf --replace-needed libprotobuf-cpp-lite-3.9.1.so libprotobuf-cpp-lite.so libwvhidl.so
-# * The useless vendor.move_data_sh service has been removed from
-#   android.hardware.drm@1.4-service.widevine.rc
--vendor/lib64/libwvhidl.so
-vendor/etc/init/android.hardware.drm@1.4-service.widevine.rc
--vendor/bin/hw/android.hardware.drm@1.4-service.widevine
 
 # Sensors - from T585XXU7CUH1
 -vendor/lib/hw/sensors.universal7870.so
